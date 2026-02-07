@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Important Question 💖</title>
+
+<style>
+    body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ffe6eb;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* Galaxy ripple "picture" */
+    body::before {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        background:
+            radial-gradient(circle at center,
+                rgba(180,120,255,0.9) 0%,
+                rgba(90,40,200,0.7) 25%,
+                rgba(30,10,80,0.6) 45%,
+                rgba(0,0,0,0) 70%);
+        border-radius: 50%;
+        filter: blur(1px);
+        opacity: 0.75;
+        animation: ripple 6s infinite ease-in-out;
+        z-index: 0;
+    }
+
+    @keyframes ripple {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+        100% { transform: scale(1); }
+    }
+
+    .box {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 20px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #yes {
+        background: #ff4d6d;
+        color: white;
+        margin-right: 20px;
+    }
+
+    #no {
+        background: #ccc;
+        color: #333;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>Will you be my Valentine? 💘</h1>
+    <button id="yes" onclick="yesClicked()">YES 💕</button>
+    <button id="no" onclick="noClicked()">NO 🙄</button>
+</div>
+
+<script>
+    let scale = 1;
+
+    function noClicked() {
+        scale += 0.3;
+        document.getElementById("yes").style.transform = `scale(${scale})`;
+    }
+
+    function yesClicked() {
+        document.body.innerHTML = `
+            <h1 style="color:#ff4d6d; text-align:center;">
+                LET'S GOOOO 💖🥰<br><br>
+                Happy Valentine’s Day!
+            </h1>
+        `;
+    }
+</script>
+
+</body>
+</html>
